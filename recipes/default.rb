@@ -19,7 +19,12 @@
 
 require_recipe "php"
 
+php_pear_channel "pear.phpunit.de" do 
+  action :discover 
+end
+
 php_pear "PHP_CodeBrowser" do
   version node['phpcb']['version']
+  channel "phpunit"
   action :install
 end
